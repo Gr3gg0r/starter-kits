@@ -64,6 +64,15 @@ export type AuthenticatorSetup = {
   secret: Scalars['String'];
 };
 
+export type CreateLifeInput = {
+  birthday: Scalars['DateTime'];
+  description: Scalars['String'];
+  firstName: Scalars['String'];
+  hobbies: Array<Scalars['String']>;
+  lastName: Scalars['String'];
+  title: Scalars['String'];
+};
+
 export type ExternalLink = ResetPasswordLink;
 
 export type Life = {
@@ -82,6 +91,8 @@ export type Life = {
   id: Scalars['ObjectID'];
   /** The last name of the individual. */
   lastName: Scalars['String'];
+  /** A title for life or interests that the individual dream of. */
+  title: Scalars['String'];
 };
 
 export type MessageNotice = {
@@ -190,11 +201,7 @@ export type MutationCreateAccountArgs = {
 
 
 export type MutationCreateLifeArgs = {
-  birthday: Scalars['DateTime'];
-  description: Scalars['String'];
-  firstName: Scalars['String'];
-  hobbies: Array<Scalars['String']>;
-  lastName: Scalars['String'];
+  input: CreateLifeInput;
 };
 
 
@@ -252,7 +259,7 @@ export type Query = {
   /** Fetch WebAuthn security keys for a username */
   getWebauthnKeys: Array<Scalars['String']>;
   /** Fetch list of the lives. */
-  listLives?: Maybe<Array<Maybe<Life>>>;
+  listLives: Array<Life>;
   /** List users */
   listUsers: PaginatedUsers;
   /** Retrieve a link information */
@@ -410,7 +417,7 @@ export type GetLifeQuery = { __typename?: 'Query', getLife?: { __typename?: 'Lif
 export type ListLivesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ListLivesQuery = { __typename?: 'Query', listLives?: Array<{ __typename?: 'Life', id: string, fullName: string, birthday: string | Date, description: string, firstName: string, lastName: string, hobbies: Array<string> } | null> | null };
+export type ListLivesQuery = { __typename?: 'Query', listLives: Array<{ __typename?: 'Life', id: string, fullName: string, birthday: string | Date, description: string, firstName: string, lastName: string, hobbies: Array<string> }> };
 
 type SystemMessageData_MessageNotice_Fragment = { __typename: 'MessageNotice', date: string | Date, message: string };
 

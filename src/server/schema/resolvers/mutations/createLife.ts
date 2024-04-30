@@ -2,11 +2,8 @@ import { ObjectId } from 'mongodb';
 import { getDatabaseContext } from '../../../database';
 import { GraphQLMutationResolvers } from '../definitions';
 
-const mutation: GraphQLMutationResolvers['createLife'] = async (
-    _,
-    { firstName, lastName, hobbies, birthday, description, title },
-    __
-) => {
+const mutation: GraphQLMutationResolvers['createLife'] = async (_, { input }, __) => {
+    const { firstName, lastName, hobbies, birthday, description, title } = input;
     const { collections } = await getDatabaseContext();
 
     const operation = await collections.lives.insertOne({
@@ -19,9 +16,7 @@ const mutation: GraphQLMutationResolvers['createLife'] = async (
         title,
     });
 
-    const life = await collections.lives.findOne({ _id: operation.insertedId });
-
-    return life;
+    return collections.lives.findOne({ _id: operation.insertedId });
 };
 
 export default mutation;

@@ -33,4 +33,18 @@ type Life {
     A list of hobbies or interests that the individual engages in.
     """
     hobbies: [String!]!
+
+    """
+    A title for life or interests that the individual dream of.
+    """
+    title: String!
+}
+
+input CreateLifeInput {
+    firstName: String!
+    lastName: String!
+    description: String!
+    birthday: DateTime!
+    hobbies: [String!]!
+    title: String!
 }

@@ -45,6 +45,15 @@ type AuthenticatorSetup {
   secret: String!
 }
 
+input CreateLifeInput {
+  birthday: DateTime!
+  description: String!
+  firstName: String!
+  hobbies: [String!]!
+  lastName: String!
+  title: String!
+}
+
 scalar DateTime
 
 union ExternalLink = ResetPasswordLink
@@ -66,6 +75,8 @@ type Life {
   id: ObjectID!
   """The last name of the individual."""
   lastName: String!
+  """A title for life or interests that the individual dream of."""
+  title: String!
 }
 
 type MessageNotice {
@@ -91,7 +102,7 @@ type Mutation {
   """Create a new account/user"""
   createAccount(email: String!, password: String!, username: String!): User!
   """Create a new life data."""
-  createLife(birthday: DateTime!, description: String!, firstName: String!, hobbies: [String!]!, lastName: String!): Life!
+  createLife(input: CreateLifeInput!): Life!
   """Disable 2FA / Authenticator for the signed user"""
   disableAuthenticator: User!
   """Enable 2FA / Authenticator for the signed user"""
@@ -152,7 +163,7 @@ type Query {
   """Fetch WebAuthn security keys for a username"""
   getWebauthnKeys(username: String!): [String!]!
   """Fetch list of the lives."""
-  listLives: [Life]
+  listLives: [Life!]!
   """List users"""
   listUsers(filter: UserFilteringRule, pagination: Pagination!, sort: UserSortingRule): PaginatedUsers!
   """Retrieve a link information"""
