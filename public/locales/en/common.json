@@ -3,7 +3,8 @@
     "welcomeTitle": "Welcome",
     "mainMenu": {
         "home": "Get Starter",
-        "topics": "Topics"
+        "topics": "Topics",
+        "life": "Life"
     },
     "errors": {
         "500": {
