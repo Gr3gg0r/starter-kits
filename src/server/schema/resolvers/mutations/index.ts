@@ -1,4 +1,5 @@
 export { default as createAccount } from './createAccount';
+export { default as createLife } from './createLife';
 export { default as authenticate } from './authenticate';
 export { default as refreshCredentials } from './refreshCredentials';
 export { default as changePasswordFromAuthentication } from './changePasswordFromAuthentication';

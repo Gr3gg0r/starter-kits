@@ -1,6 +1,7 @@
 export { GraphQLJSONObject as JSONObject } from 'graphql-type-json';
 export { GraphQLUpload as Upload } from 'graphql-upload';
 export { default as User } from './User';
+export { default as Life } from './Life';
 export { default as ObjectID } from './ObjectID';
 export { default as DateTime } from './DateTime';
 export { default as AuthenticationResponse } from './AuthenticationResponse';

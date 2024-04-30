@@ -1,0 +1,9 @@
+fragment LifeData on Life {
+    id
+    fullName
+    birthday
+    description
+    firstName
+    lastName
+    hobbies
+}

@@ -1,0 +1,11 @@
+query getLife($id: ObjectID!) {
+    getLife(id: $id) {
+        ...LifeData
+    }
+}
+
+query listLives {
+    listLives {
+        ...LifeData
+    }
+}
