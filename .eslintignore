@@ -1,0 +1,12 @@
+/node_modules
+/schema/**/*.graphql
+/src/schema/typeDefs.graphql
+/build
+/.cache
+/coverage
+/junit
+/.yarn
+
+/src/app/api/index.ts
+/src/app/api/introspection.ts
+/src/server/schema/resolvers/definitions.ts

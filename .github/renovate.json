@@ -1,0 +1,32 @@
+{
+  "labels": ["dependencies"],
+  "semanticCommits": "enabled",
+  "lockFileMaintenance": { "enabled": false },
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "Node Dependencies (non-major)",
+      "groupSlug": "npm-dependencies"
+    },
+    {
+      "matchDatasources": ["orb"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "CircleCI Orbs (non-major)",
+      "groupSlug": "circleci-orbs"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "Docker images (non-major)",
+      "groupSlug": "docker"
+    },
+    {
+      "matchDatasources": ["helm"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "Helm charts (non-major)",
+      "groupSlug": "helm"
+    }
+  ]
+}

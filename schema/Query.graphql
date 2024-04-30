@@ -1,0 +1,31 @@
+type Query {
+    """
+    Fetch user document for the logged in user, returns null otherwise for anonymous
+    """
+    currentUser: User
+
+    """
+    List users
+    """
+    listUsers(pagination: Pagination!, filter: UserFilteringRule, sort: UserSortingRule): PaginatedUsers!
+
+    """
+    Retrieve a link information
+    """
+    retrieveLink(id: String!): ExternalLink
+
+    """
+    Generate authenticator secret and qrcode
+    """
+    generateAuthenticatorSetup: AuthenticatorSetup!
+
+    """
+    Fetch WebAuthn security keys for a username
+    """
+    getWebauthnKeys(username: String!): [String!]!
+
+    """
+    Generate challenge to authenticate with WebAuthn
+    """
+    generateAuthenticatorChallenge(username: String!): AuthenticationWithWebPublicKeyCredential
+}
