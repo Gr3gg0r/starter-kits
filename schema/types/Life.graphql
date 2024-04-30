@@ -1,0 +1,36 @@
+type Life {
+    """
+    Life object ID.
+    """
+    id: ObjectID!
+
+    """
+    The first name of the individual.
+    """
+    firstName: String!
+
+    """
+    The last name of the individual.
+    """
+    lastName: String!
+
+    """
+    The full name of the individual, composed of firstName and lastName.
+    """
+    fullName: String!
+
+    """
+    A text description of the Life entry.
+    """
+    description: String!
+
+    """
+    The birth date of the individual.
+    """
+    birthday: DateTime!
+
+    """
+    A list of hobbies or interests that the individual engages in.
+    """
+    hobbies: [String!]!
+}

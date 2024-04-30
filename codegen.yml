@@ -22,6 +22,7 @@ generates:
       typesPrefix: GraphQL
       mappers:
         User: ../../database#User
+        Life: ../../database#Life
         UserSession: ../../database#UserSession
         SystemMessage: ../../utils/systemMessage#SystemMessage
         AuthenticationResponse: ./typings#AuthenticationResponse
